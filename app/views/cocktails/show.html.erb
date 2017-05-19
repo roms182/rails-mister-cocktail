@@ -3,6 +3,9 @@
 
 <div class="container block-center">
   <%= image_tag @cocktail.picture, { style: "width:300px;height:200px",
+                                     class: "block-center" } unless @cocktail.picture.nil? %>
+
+  <%= image_tag @cocktail.avatar, { style: "width:300px;height:200px",
                                      class: "block-center" }%>
 
   <% @cocktail.doses.each do |d| %>

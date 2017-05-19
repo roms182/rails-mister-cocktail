@@ -10,8 +10,12 @@
     <% @cocktails.each do |cocktail| %>
       <li><%= link_to cocktail.name, cocktail_path(cocktail),
               { class: 'text-center'} %>
-        <%= image_tag cocktail.picture %>
+        <%= image_tag cocktail.picture unless cocktail.picture.nil? %>
+        <%= cl_image_tag(cocktail.avatar, :transformation=>[
+  {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"thumb"}
+  ]) unless cocktail.avatar.nil? %>
       </li>
+
     <% end %>
   </ul>
 </div>
