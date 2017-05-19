@@ -1,2 +1,17 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<h1 class="text-center">Welcome on Mister-Cocktail</h1>
+  <p class="text-center">Here is a list of all available cocktails</p>
+  <p class="text-center">
+    <%= link_to ':: Add new ::', new_cocktail_path, { class: 'text-center' }%>
+  </p>
+
+<div class="container block-center">
+
+  <ul class="list-unstyled list-cocktail block-center">
+    <% @cocktails.each do |cocktail| %>
+      <li><%= link_to cocktail.name, cocktail_path(cocktail),
+              { class: 'text-center'} %>
+        <%= image_tag cocktail.picture %>
+      </li>
+    <% end %>
+  </ul>
+</div>

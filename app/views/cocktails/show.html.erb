@@ -1,2 +1,15 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<h1 class="text-center"><%= @cocktail.name %></h1>
+
+
+<div class="container block-center">
+  <%= image_tag @cocktail.picture, { style: "width:300px;height:200px",
+                                     class: "block-center" }%>
+
+  <% @cocktail.doses.each do |d| %>
+    <p>+ <%= d.description %> de <%= d.ingredient.name %></p>
+  <% end %>
+
+  <%= link_to 'Add new', new_cocktail_dose_path(@cocktail) %> |
+  <%= link_to 'Back', cocktails_path, { class: "text-center" } %>
+
+</div>
